@@ -20,7 +20,7 @@ my $re= qr{
         (?:<>|<=>|>=|<=|==|=|!=|!|<<|>>|<|>|\|\||\||&&|&|-|\+|\*(?!/)|/(?!\*)|\%|~|\^|\?)
                                 # operators and tests
         |
-        [\[\]\(\),;]            # punctuation (parenthesis, comma)
+        [\[\]\(\),;.]            # punctuation (parenthesis, comma)
         |
         \'\'(?!\')              # empty single quoted string
         |
@@ -28,6 +28,9 @@ my $re= qr{
         |
         ".*?(?:(?:""){1,}"|(?<!["\\])"(?!")|\\"{2})
                                 # anything inside double quotes, ungreedy
+		|
+        `.*?(?:(?:``){1,}`|(?<![`\\])`(?!`)|\\`{2})
+                                # anything inside backticks quotes, ungreedy
         |
         '.*?(?:(?:''){1,}'|(?<!['\\])'(?!')|\\'{2})
                                 # anything inside single quotes, ungreedy.

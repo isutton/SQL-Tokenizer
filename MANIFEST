@@ -17,6 +17,7 @@ t/07-equality-and-math-operators.t
 t/08-remove-white-tokens.t
 t/09-shell-style-comments.t
 t/10-sql-operators.t
+t/11-name-sep.t
 t/98-dbix-placeholder-named.t
 t/99-rt34889.t
 t/pod.t
