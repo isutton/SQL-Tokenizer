@@ -1,8 +1,12 @@
 Revision history for SQL-Tokenizer
 
+0.19
+	- Allow `` quoted strings (similar to "" and '') - Jonas Kramer
+	- Add dot to punctuation characters - Jonas Kramer
+	
 0.17
-        - fixed issues with square brackets
-        - now exports a function if required
+	- fixed issues with square brackets
+	- now exports a function if required
 
 0.16
 	- now supports database.schema.table dialect.
