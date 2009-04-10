@@ -1,0 +1,6 @@
+.gitignore
+.git
+^Makefile$
+^._
+blib
+pm_to_blib
