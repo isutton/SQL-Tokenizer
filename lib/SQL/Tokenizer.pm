@@ -75,6 +75,8 @@ SQL::Tokenizer - A simple SQL tokenizer.
 
 =head1 VERSION
 
+0.20
+
 =head1 SYNOPSIS
 
  use SQL::Tokenizer qw(tokenize_sql);
@@ -153,11 +155,15 @@ Charlie Hills, for spotting a lot of important issues I haven't thought.
 
 Jonas Kramer, for fixing MySQL quoted strings and treating dot as punctuation character correctly.
 
+=item
+
+Emanuele Zeppieri, for asking to fix SQL::Tokenizer to support dollars as well.
+
 =back
 
 =head1 AUTHOR
 
-Copyright (c) 2007, 2008 Igor Sutton Lopes "<IZUT@cpan.org>". All rights
+Copyright (c) 2007, 2008, 2009, 2010 Igor Sutton Lopes "<IZUT@cpan.org>". All rights
 reserved.
 
 This module is free software; you can redistribute it and/or modify it under
