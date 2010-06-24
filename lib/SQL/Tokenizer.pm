@@ -11,7 +11,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK= qw(tokenize_sql);
 
-our $VERSION= '0.19';
+our $VERSION= '0.20';
 
 my $re= qr{
     (
@@ -39,6 +39,8 @@ my $re= qr{
         |
         (?:[\w:@]+(?:\.(?:\w+|\*)?)*)
                                 # words, standard named placeholders, db.table.*, db.*
+        |
+        (?:\${1,2})             # dollars
         |
         \n                      # newline
         |
