@@ -40,7 +40,8 @@ my $re= qr{
         (?:[\w:@]+(?:\.(?:\w+|\*)?)*)
                                 # words, standard named placeholders, db.table.*, db.*
         |
-        (?:\${1,2})             # dollars
+        (?: \$_\$ | \$\d+ | \${1,2} )
+                                # dollar expressions - eg $_$ $3 $$
         |
         \n                      # newline
         |
