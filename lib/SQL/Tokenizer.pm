@@ -11,7 +11,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK= qw(tokenize_sql);
 
-our $VERSION= '0.20';
+our $VERSION= '0.21';
 
 my $re= qr{
     (
@@ -160,11 +160,15 @@ Jonas Kramer, for fixing MySQL quoted strings and treating dot as punctuation ch
 
 Emanuele Zeppieri, for asking to fix SQL::Tokenizer to support dollars as well.
 
+=item
+
+Nigel Metheringham, for extending the dollar signal support.
+
 =back
 
 =head1 AUTHOR
 
-Copyright (c) 2007, 2008, 2009, 2010 Igor Sutton Lopes "<IZUT@cpan.org>". All rights
+Copyright (c) 2007, 2008, 2009, 2010, 2011 Igor Sutton Lopes "<IZUT@cpan.org>". All rights
 reserved.
 
 This module is free software; you can redistribute it and/or modify it under
