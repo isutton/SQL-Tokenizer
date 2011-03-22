@@ -1,5 +1,8 @@
 Revision history for SQL-Tokenizer
 
+0.21
+    - Better handling of $ placeholders - Nigel Metheringham
+
 0.19
 	- Allow `` quoted strings (similar to "" and '') - Jonas Kramer
 	- Add dot to punctuation characters - Jonas Kramer

@@ -20,4 +20,6 @@ t/10-sql-operators.t
 t/11-name-sep.t
 t/98-dbix-placeholder-named.t
 t/99-rt34889.t
+t/99-dollars.t
+t/99-more-dollars.t
 t/pod.t
