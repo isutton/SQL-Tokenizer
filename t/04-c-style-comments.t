@@ -128,6 +128,66 @@ COMPLEX_SQL
             NL,
         ],
     },
+    {
+        description => q{multi-line C style comment with CR+LF newline},
+        query       => <<COMPLEX_SQL,
+/*\r
+    drop table\r
+*/\r
+DROP TABLE test;\r
+/*\r
+    create table\r
+*/\r
+CREATE TABLE test (id INT, name VARCHAR);\r
+/*\r
+    insert data\r
+*/\r
+INSERT INTO test (id, name) VALUES (1, 't');\r
+INSERT INTO test (id, name) VALUES (2, '''quoted''');\r
+COMPLEX_SQL
+
+        wanted => [
+            qq{/*\r\n    drop table\r\n*/}, NL,
+            'DROP',                         SPACE,
+            'TABLE',                        SPACE,
+            'test',                         ';',
+            NL,                             qq{/*\r\n    create table\r\n*/},
+            NL,                             'CREATE',
+            SPACE,                          'TABLE',
+            SPACE,                          'test',
+            SPACE,                          '(',
+            'id',                           SPACE,
+            'INT',                          COMMA,
+            SPACE,                          'name',
+            SPACE,                          'VARCHAR',
+            ')',                            ';',
+            NL,                             qq{/*\r\n    insert data\r\n*/},
+            NL,                             'INSERT',
+            SPACE,                          'INTO',
+            SPACE,                          'test',
+            SPACE,                          '(',
+            'id',                           COMMA,
+            SPACE,                          'name',
+            ')',                            SPACE,
+            'VALUES',                       SPACE,
+            '(',                            '1',
+            COMMA,                          SPACE,
+            q{'t'},                         ')',
+            ';',                            NL,
+            'INSERT',                       SPACE,
+            'INTO',                         SPACE,
+            'test',                         SPACE,
+            '(',                            'id',
+            COMMA,                          SPACE,
+            'name',                         ')',
+            SPACE,                          'VALUES',
+            SPACE,                          '(',
+            '2',                            COMMA,
+            SPACE,                          q{'''quoted'''},
+            ')',                            ';',
+            NL,
+        ],
+    },
 );
 
 plan tests => scalar @tests;

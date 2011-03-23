@@ -35,7 +35,7 @@ my $re= qr{
         '.*?(?:(?:''){1,}'|(?<!['\\])'(?!')|\\'{2})
                                 # anything inside single quotes, ungreedy.
         |
-        /\*[\ \t\n\S]*?\*/      # C style comments
+        /\*[\ \t\r\n\S]*?\*/      # C style comments
         |
         (?:[\w:@]+(?:\.(?:\w+|\*)?)*)
                                 # words, standard named placeholders, db.table.*, db.*
