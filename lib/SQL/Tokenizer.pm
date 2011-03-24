@@ -11,7 +11,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK= qw(tokenize_sql);
 
-our $VERSION= '0.21';
+our $VERSION= '0.22';
 
 my $re= qr{
     (
@@ -163,6 +163,10 @@ Emanuele Zeppieri, for asking to fix SQL::Tokenizer to support dollars as well.
 =item
 
 Nigel Metheringham, for extending the dollar signal support.
+
+=item
+
+Devin Withers, for making it not choke on CR+LF in comments.
 
 =back
 

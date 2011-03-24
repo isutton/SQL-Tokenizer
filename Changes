@@ -1,5 +1,8 @@
 Revision history for SQL-Tokenizer
 
+0.22
+    - Better handling of CR+LF in comments - Devin Withers
+
 0.21
     - Better handling of $ placeholders - Nigel Metheringham
 
