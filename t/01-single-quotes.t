@@ -50,6 +50,21 @@ my @tests= (
     },
 
     {
+        description => qq{more than one C style escaped single quotes inside string, with extra backslashes},
+        query =>
+          q{INSERT INTO logs (program, message) VALUES (:program, 'Something \' with \' a \' lot \' of \' scaped quotes\\\\\\\\\\\\\\\\')},
+        wanted => [
+            'INSERT',   SPACE,    'INTO',    SPACE,
+            'logs',     SPACE,    '(',       'program',
+            COMMA,      SPACE,    'message', ')',
+            SPACE,      'VALUES', SPACE,     '(',
+            ':program', COMMA,    SPACE,
+            q{'Something \' with \' a \' lot \' of \' scaped quotes\\\\\\\\\\\\\\\\'},
+            ')'
+        ],
+    },
+
+    {
         description => qq{SQL style escaped single quotes},
         query       => q{INSERT INTO logs (program) VALUES ('single''quote')},
         wanted      => [

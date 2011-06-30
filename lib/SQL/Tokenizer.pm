@@ -11,7 +11,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK= qw(tokenize_sql);
 
-our $VERSION= '0.22';
+our $VERSION= '0.23';
 
 my $re= qr{
     (
@@ -26,13 +26,13 @@ my $re= qr{
         |
         \"\"(?!\"")             # empty double quoted string
         |
-        ".*?(?:(?:""){1,}"|(?<!["\\])"(?!")|\\"{2})
+        "(?:""|\\.|[^"\\])*"
                                 # anything inside double quotes, ungreedy
-		|
-        `.*?(?:(?:``){1,}`|(?<![`\\])`(?!`)|\\`{2})
+        |
+        `(?:``|\\.|[^`\\])*`
                                 # anything inside backticks quotes, ungreedy
         |
-        '.*?(?:(?:''){1,}'|(?<!['\\])'(?!')|\\'{2})
+        '(?:''|\\.|[^'\\])*'
                                 # anything inside single quotes, ungreedy.
         |
         /\*[\ \t\r\n\S]*?\*/      # C style comments
@@ -121,7 +121,7 @@ like the one below should not be a problem:
  $tokens= tokenize_sql( $query, $remove_white_tokens );
 
 C<tokenize_sql> can be imported to current namespace on request. It receives a
-SQL query, and returns an array of tokens if called in list context, or an 
+SQL query, and returns an array of tokens if called in list context, or an
 arrayref if called in scalar context.
 
 =item tokenize
@@ -144,7 +144,7 @@ result.
 
 =over 4
 
-=item 
+=item
 
 Evan Harris, for implementing Shell comment style and SQL operators.
 
@@ -167,6 +167,10 @@ Nigel Metheringham, for extending the dollar signal support.
 =item
 
 Devin Withers, for making it not choke on CR+LF in comments.
+
+=item
+
+Luc Lanthier, for simplifying the regex and make it not choke on backslashes.
 
 =back
 
