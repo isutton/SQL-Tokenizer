@@ -11,7 +11,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK= qw(tokenize_sql);
 
-our $VERSION= '0.23';
+our $VERSION= '0.24';
 
 my $re= qr{
     (
@@ -26,13 +26,13 @@ my $re= qr{
         |
         \"\"(?!\"")             # empty double quoted string
         |
-        "(?:""|\\.|[^"\\])*"
+        "(?>(?:(?>[^"\\]+)|""|\\.)*)+"
                                 # anything inside double quotes, ungreedy
         |
-        `(?:``|\\.|[^`\\])*`
+        `(?>(?:(?>[^`\\]+)|``|\\.)*)+`
                                 # anything inside backticks quotes, ungreedy
         |
-        '(?:''|\\.|[^'\\])*'
+        '(?>(?:(?>[^'\\]+)|''|\\.)*)+'
                                 # anything inside single quotes, ungreedy.
         |
         /\*[\ \t\r\n\S]*?\*/      # C style comments
