@@ -1,5 +1,9 @@
 Revision history for SQL-Tokenizer
 
+0.24
+
+    - Dramatically reduce memory usage for quote handling - Luc Lanthier
+
 0.23
 
     - Simplified regex and fix for back slashes in the end of a string - Luc Lanthier
